@@ -1,0 +1,92 @@
+---
+title: "Mapping Ecoregions"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Mapping Ecoregions}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 7,
+  fig.height = 5
+)
+```
+
+```{r setup}
+library(ecoregions)
+library(ggplot2)
+library(sf)
+theme_set(theme_void())
+```
+
+# Continental United States Ecoregion III
+
+```{r}
+data("ContinentalUsEcoregion3")
+useco3legend <- unique(as.data.frame(ContinentalUsEcoregion3)[ , c('na_l3name', 'color')])
+ggplot(ContinentalUsEcoregion3) +
+  geom_sf(aes(fill = color), color = NA) +
+  scale_fill_identity(labels = useco3legend$na_l3name, 
+                      breaks = useco3legend$color)
+```
+
+# Continental United States Ecoregion IV
+
+```{r}
+data("ContinentalUsEcoregion4")
+useco4legend <- unique(as.data.frame(ContinentalUsEcoregion4)[ , c('us_l4name', 'color')])
+ggplot(ContinentalUsEcoregion4) +
+  geom_sf(aes(fill = color), color = NA) +
+  scale_fill_identity(labels = useco4legend$us_l4name, 
+                      breaks = useco4legend$color)
+```
+
+# North America Ecoregion I
+
+```{r}
+data("NorthAmericaEcoregion1")
+naeco1legend <- unique(as.data.frame(NorthAmericaEcoregion1)[ , c('na_l1name', 'color')])
+ggplot(NorthAmericaEcoregion1) +
+  geom_sf(aes(fill = color), color = NA) +
+  scale_fill_identity(labels = naeco1legend$na_l1name, 
+                      breaks = naeco1legend$color)
+```
+
+# North America Ecoregion II
+
+```{r}
+data("NorthAmericaEcoregion2")
+naeco2legend <- unique(as.data.frame(NorthAmericaEcoregion2)[ , c('na_l2name', 'color')])
+ggplot(NorthAmericaEcoregion2) +
+  geom_sf(aes(fill = color), color = NA) +
+  scale_fill_identity(labels = naeco2legend$na_l2name, 
+                      breaks = naeco2legend$color)
+```
+
+# North America Ecoregion III
+
+```{r}
+data("NorthAmericaEcoregion3")
+naeco3legend <- unique(as.data.frame(NorthAmericaEcoregion3)[ , c('na_l3name', 'color')])
+ggplot(NorthAmericaEcoregion3) +
+  geom_sf(aes(fill = color), color = NA) +
+  scale_fill_identity(labels = naeco3legend$na_l3name, 
+                      breaks = naeco3legend$color)
+```
+
+
+### World Ecoregions
+
+```{r}
+data("worldecoregions")
+welegends <- unique(as.data.frame(worldecoregions)[, c('eco_name', 'ecoregion_color')])
+ggplot(st_transform(worldecoregions, 3857)) +
+  geom_sf(aes(fill = ecoregion_color), color = NA) +
+  scale_fill_identity(labels = welegends$eco_name, 
+                      breaks = welegends$ecoregion_color)
+```
+

@@ -1,0 +1,7 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+
+data-raw/
+inst/extdata/*
+^LICENSE\.md$
+^doc$
