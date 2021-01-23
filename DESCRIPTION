@@ -16,5 +16,6 @@ URL: https://github.com/tomroh/ecoregions
 BugReports: https://github.com/tomroh/ecoregions/issues
 Suggests: 
     knitr,
+    ggplot2,
     rmarkdown
 VignetteBuilder: knitr
